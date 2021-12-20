@@ -1,0 +1,14 @@
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/ecxeption/CouponException.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/CouponCategory.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/DistributeTarget.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/CouponTemplateSDK.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/Constant.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/conf/WebConfigruation.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/PeriodType.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/CommonResponse.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/annotation/IgnoreResposeAdvice.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/conf/JackConfig.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/TemplateRule.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/advice/CommonResponseDataAdvice.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/advice/GloblalExceptionAdvice.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/ProductLine.java
