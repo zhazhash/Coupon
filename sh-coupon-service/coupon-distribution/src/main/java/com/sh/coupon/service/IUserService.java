@@ -4,6 +4,7 @@ import com.sh.coupon.ecxeption.CouponException;
 import com.sh.coupon.entity.Coupon;
 import com.sh.coupon.vo.AcquireTemplateRequest;
 import com.sh.coupon.vo.CouponTemplateSDK;
+import com.sh.coupon.vo.SettlementInfo;
 
 import java.util.List;
 
@@ -39,4 +40,12 @@ public interface IUserService {
      * @throws CouponException
      */
     Coupon acquireTemplate(AcquireTemplateRequest request) throws CouponException;
+
+    /**
+     * 结算（核销）优惠卷
+     * @param info {@link SettlementInfo}
+     * @return {@link SettlementInfo}
+     * @throws CouponException
+     */
+    SettlementInfo settlenment(SettlementInfo info) throws CouponException;
 }
