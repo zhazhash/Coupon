@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 优惠卷结算微服务
+ * 优惠卷结算微服务调用
  */
 @FeignClient(value = "eureka-client-coupon-settlement",fallback = SettlementClientHystrix.class)
 public interface SettlementClient {

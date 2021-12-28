@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 优惠卷模板
+ * 优惠卷模板微服务调用
  */
 @FeignClient(value = "eureka-client-coupon-template",fallback = TemplateCientHystrix.class)
 public interface TemplateClient {

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AcquireTemplateRequest {
     /*用户id*/
-    private Integer userId;
+    private Long userId;
     /*优惠卷模板信息*/
     private CouponTemplateSDK couponTemplateSDK;
 }
