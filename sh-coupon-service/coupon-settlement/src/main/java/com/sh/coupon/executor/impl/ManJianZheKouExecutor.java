@@ -12,6 +12,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,7 +67,51 @@ public class ManJianZheKouExecutor extends AbstractExecutor implements RuleExecu
         assert null != zheKou;
 
         //当前的满减卷与折扣卷是否可以一起使用，不能共用则清空优惠卷，返回商品总价
-        
-        return null;
+        if (!isTemplateCanShared(manJian,zheKou)){
+            settlementInfo.setCost(goodsSum);
+            settlementInfo.setCouponAndTemplateInfos(Collections.emptyList());
+            return settlementInfo;
+        }
+        List<SettlementInfo.CouponAndTemplateInfo> ctInfos = new ArrayList<>();
+        double targetSum = goodsSum;
+        //判断是否可以使用满减优惠卷
+        double manJianBase = (double)manJian.getCouponTemplate().getRule().getDiscount().getBase();
+        double manJianQuota = (double) manJian.getCouponTemplate().getRule().getDiscount().getQuota();
+
+        if(goodsSum >= manJianBase){
+            targetSum -= manJianQuota;
+            ctInfos.add(manJian);
+        }
+
+        double zheKouQuota = (double) zheKou.getCouponTemplate().getRule().getDiscount().getQuota();
+        ctInfos.add(zheKou);
+        targetSum *= zheKouQuota * 1.0 / 100;
+
+        settlementInfo.setCost(retain2Decimals(targetSum > minCost() ? targetSum : minCost()));
+        settlementInfo.setCouponAndTemplateInfos(ctInfos);
+        log.debug("Use ManJian Add ZheKou Coupon Make Goods Cost From {} To {}" ,goodsSum,settlementInfo.getCost());
+        return settlementInfo;
     }
+
+    /**
+     * 判断两张优惠卷是否可以共用
+     * @param manJian
+     * @param zheKou
+     * @return
+     */
+    private boolean isTemplateCanShared(SettlementInfo.CouponAndTemplateInfo manJian,SettlementInfo.CouponAndTemplateInfo zheKou){
+        String manJianKey = manJian.getCouponTemplate().getKey() + String.format("%04d" ,manJian.getCouponTemplate().getId());
+        String zheKouKey = zheKou.getCouponTemplate().getKey() + String.format("%04d",zheKou.getCouponTemplate().getId());
+        List<String> allSharedKeysForManJian = new ArrayList<>();
+        allSharedKeysForManJian.addAll(JSON.parseObject(manJian.getCouponTemplate().getRule().getWeight(),List.class));
+        allSharedKeysForManJian.add(manJianKey);
+        List<String> allSharedKeysForZheKou = new ArrayList<>();
+        allSharedKeysForZheKou.add(zheKouKey);
+        allSharedKeysForManJian.addAll(JSON.parseObject(zheKou.getCouponTemplate().getRule().getWeight(),List.class));
+        return CollectionUtils.isSubCollection(Arrays.asList(manJianKey,zheKouKey),allSharedKeysForManJian) ||
+                CollectionUtils.isSubCollection(Arrays.asList(manJian,zheKouKey),allSharedKeysForZheKou);
+    }
+
+
 }
+
