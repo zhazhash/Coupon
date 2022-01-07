@@ -40,7 +40,7 @@ spring:
     timeout: 10000
   kafka:
     bootstrap-servers:
-      -127.0.0.1:9092
+      host: 127.0.0.1:9092
     consumer:
       group-id: sh-counp-x
       auto-offset-reset: latest #consumer 从哪一条开始消费
@@ -62,7 +62,7 @@ feign:
   client:
     config:
       default: #全局的微服务
-        connectTimeout: 2000 #默认链接超时时间 10s
+        connectTimeout: 20 00 #默认链接超时时间 10s
         readTimeout: 5000
       eureka-client-coupon-template: #单独的微服务调用配置
         connectTimeout: 3000

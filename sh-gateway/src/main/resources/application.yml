@@ -16,6 +16,11 @@ zuul:
       path: /coupon-template/** # 依靠什么转发
       serviceId: eureka-client-coupon-template # 当前服务在 Eureka Server中注册的id
       strip-prefix : false #是否去掉项目前缀
+    #优惠卷分发服务定义
+    distribution:
+      path: /coupon-distribution/**
+    serviceIf: eureka-client-coupon-distribution
+    strip-preifx: false
   host:
     connect-timeout-millis: 15000
     socket-timeout-millis: 60000

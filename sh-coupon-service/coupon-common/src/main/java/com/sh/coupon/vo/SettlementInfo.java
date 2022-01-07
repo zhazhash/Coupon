@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SettlementInfo {
     /*用户id*/
-    private Integer userId;
+    private Long userId;
     /*商品列表*/
     private List<GoodsInfo> goodsInfos;
     /*优惠卷列表*/
@@ -28,7 +28,7 @@ public class SettlementInfo {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    private class  CouponAndTemplateInfo{
+    public class  CouponAndTemplateInfo{
         /* 优惠卷id */
         private Integer id;
         private CouponTemplateSDK couponTemplate;

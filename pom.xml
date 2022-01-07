@@ -11,6 +11,7 @@
         <module>sh-eureka</module>
         <module>sh-gateway</module>
         <module>sh-coupon-service</module>
+        <module>sh-coupon-service/coupon-settlement</module>
     </modules>
 
     <name>sh-coupon</name>
