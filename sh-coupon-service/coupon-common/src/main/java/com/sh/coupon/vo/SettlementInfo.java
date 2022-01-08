@@ -28,7 +28,7 @@ public class SettlementInfo {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public class  CouponAndTemplateInfo{
+    public static class  CouponAndTemplateInfo{
         /* 优惠卷id */
         private Integer id;
         private CouponTemplateSDK couponTemplate;

@@ -37,8 +37,14 @@ public class ExecutorManger implements BeanPostProcessor {
         if(settlementInfo.getCouponAndTemplateInfos().size() == 1){
             CouponCategory category = CouponCategory.of(settlementInfo.getCouponAndTemplateInfos().get(0)
                     .getCouponTemplate().getCategory());
-            return executorIndex.get(category).couputeRule(settlementInfo);
-
+            switch (category){
+                case MANJIAN:
+                    return executorIndex.get(RuleFlag.MANJIAN).couputeRule(settlementInfo);
+                case ZHEKOU:
+                    return executorIndex.get(RuleFlag.ZHEKOU).couputeRule(settlementInfo);
+                case LIJIAN:
+                    return executorIndex.get(RuleFlag.LIJIAN).couputeRule(settlementInfo);
+            }
         }
         if(settlementInfo.getCouponAndTemplateInfos().size() == 2){
             List<CouponCategory> categories = new ArrayList<>();

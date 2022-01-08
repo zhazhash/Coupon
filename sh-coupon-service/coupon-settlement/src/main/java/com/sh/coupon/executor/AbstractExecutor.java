@@ -47,6 +47,7 @@ public abstract class AbstractExecutor {
         if (!isGoodsTypeSatisfy) {
             settlementInfo.setCost(goodSum);
             settlementInfo.setCouponAndTemplateInfos(Collections.emptyList());
+            return settlementInfo;
         }
         return null;
     }
