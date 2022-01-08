@@ -34,8 +34,10 @@ public class ManJianZheKouExecutor extends AbstractExecutor implements RuleExecu
         List<Integer> goodsType = settlementInfo.getGoodsInfos().stream().map(GoodsInfo::getType).collect(Collectors.toList());
         List<Integer> templateGoodsType = new ArrayList<>();
 
-        settlementInfo.getCouponAndTemplateInfos().forEach(ct -> templateGoodsType.addAll(JSON.parseObject(ct.getCouponTemplate().getRule()
-        .getUsage().getGoodsType(),List.class)));
+        settlementInfo.getCouponAndTemplateInfos().forEach(ct -> {
+            templateGoodsType.addAll(JSON.parseObject(ct.getCouponTemplate().getRule()
+                    .getUsage().getGoodsType(),List.class));
+        });
         // 如果要使用多种优惠卷，就要包含所有的商品类型，差值为空 CollectionUtils.subtract用于判断两个集合的差值有哪些
         return CollectionUtils.isEmpty(CollectionUtils.subtract(goodsType,templateGoodsType));
     }

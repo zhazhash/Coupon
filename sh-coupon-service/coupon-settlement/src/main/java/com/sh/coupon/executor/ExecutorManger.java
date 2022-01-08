@@ -50,7 +50,7 @@ public class ExecutorManger implements BeanPostProcessor {
             List<CouponCategory> categories = new ArrayList<>();
             settlementInfo.getCouponAndTemplateInfos().forEach(ct ->
                     categories.add(CouponCategory.of(ct.getCouponTemplate().getCategory())));
-            if (categories.contains(RuleFlag.MANJIAN) && categories.contains(RuleFlag.ZHEKOU)){
+            if (categories.contains(CouponCategory.MANJIAN) && categories.contains(CouponCategory.ZHEKOU)){
                return executorIndex.get(RuleFlag.MANJIAN_ZHEKOU).couputeRule(settlementInfo);
             }
         }
