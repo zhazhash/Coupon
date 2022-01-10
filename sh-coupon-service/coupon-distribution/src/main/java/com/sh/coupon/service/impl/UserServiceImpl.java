@@ -41,7 +41,11 @@ public class UserServiceImpl implements IUserService {
     /*优惠卷结算微服务调用*/
     private final SettlementClient settlementClient;
 
-    public UserServiceImpl(CouponDao couponDao, IRedisService redisService, TemplateClient templateClient, SettlementClient settlementClient, KafkaTemplate kafkaTemplate) {
+    public UserServiceImpl(CouponDao couponDao,
+                           IRedisService redisService,
+                           TemplateClient templateClient,
+                           SettlementClient settlementClient,
+                           KafkaTemplate kafkaTemplate) {
         this.couponDao = couponDao;
         this.redisService = redisService;
         this.templateClient = templateClient;

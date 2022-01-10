@@ -19,8 +19,8 @@ zuul:
     #优惠卷分发服务定义
     distribution:
       path: /coupon-distribution/**
-    serviceIf: eureka-client-coupon-distribution
-    strip-preifx: false
+      serviceIf: eureka-client-coupon-distribution
+      strip-preifx: false
     #优惠卷结算服务定义
     settlement:
       path: /coupon-settlement/**
