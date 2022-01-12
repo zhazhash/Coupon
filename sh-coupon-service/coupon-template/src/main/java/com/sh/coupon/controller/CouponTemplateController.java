@@ -34,13 +34,13 @@ public class CouponTemplateController {
      * @return
      */
     @PostMapping("/build")
-    public CouponTemplate buildTemplate(@RequestParam TemplateRequest request) throws CouponException {
+    public CouponTemplate buildTemplate(@RequestBody TemplateRequest request) throws CouponException {
         log.info("Build Template : {}", JSON.toJSONString(request));
         return buildTemplateService.buildTemplate(request);
     }
     /**
      *  构建优惠卷模板详情
-     *  127.0.0.1/coupon/coupon-template/template/info
+     *  127.0.0.1:9000/coupon/coupon-template/template/info
      * @param
      * @return
      */
@@ -52,7 +52,7 @@ public class CouponTemplateController {
 
     /**
      *获取所有可用的优惠卷模板
-     * 127.0.0.1/coupon/coupon-template/template/sdk/all
+     * 127.0.0.1:9000/coupon/coupon-template/template/sdk/all
      * @return
      * @throws CouponException
      */
@@ -65,12 +65,12 @@ public class CouponTemplateController {
     /**
      * 根据模板ids 获取优惠卷模板信息
      * @param ids
-     * 127.0.0.1/coupon/coupon-template/template/sdk/infos
+     * 127.0.0.1:9000/coupon/coupon-template/template/sdk/infos
      * @return
      * @throws CouponException
      */
-    @PostMapping("/sdk/infos")
-    public Map<Integer,CouponTemplateSDK> findIds2TemplateSDK(Collection<Integer> ids) throws CouponException{
+    @GetMapping("/sdk/infos")
+    public Map<Integer,CouponTemplateSDK> findIds2TemplateSDK(@RequestParam("ids") Collection<Integer> ids) throws CouponException{
         log.info("findIds2TemplateSDK : {}",JSON.toJSONString(ids));
         return templateBaseService.findIds2TemplateSDK(ids);
     }

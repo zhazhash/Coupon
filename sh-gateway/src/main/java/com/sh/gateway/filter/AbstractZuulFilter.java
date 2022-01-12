@@ -9,7 +9,7 @@ import com.netflix.zuul.exception.ZuulException;
  */
 public abstract  class AbstractZuulFilter extends ZuulFilter {
     RequestContext requestContext;
-    private  String NEXT;
+    private  String NEXT = "next";
     @Override
     public boolean shouldFilter() {
         RequestContext ctx = RequestContext.getCurrentContext();
@@ -28,7 +28,7 @@ public abstract  class AbstractZuulFilter extends ZuulFilter {
         requestContext.setSendZuulResponse(false);
         requestContext.getResponse().setContentType("text/html;charset=UTF-8");
         requestContext.setResponseStatusCode(code);
-        requestContext.setResponseBody(String.format("{\"result\": \" %s!\"",msg));
+        requestContext.setResponseBody(String.format("{\"result\": \" %s!\"}",msg));
         return null;
     }
     Object success(){

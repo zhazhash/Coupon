@@ -7,6 +7,7 @@ import com.sh.coupon.vo.SettlementInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.codec.CodecException;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -25,8 +26,8 @@ public class SettlementController {
      * @return
      * @throws CodecException
      */
-    @PostMapping("/sellement/computerule")
-    public SettlementInfo computeRule(SettlementInfo settlementInfo) throws CouponException {
+    @PostMapping("/settlement/computerule")
+    public SettlementInfo computeRule(@RequestBody SettlementInfo settlementInfo) throws CouponException {
         log.info("settlement:{}", JSON.toJSONString(settlementInfo));
         return executorManger.couputeRule(settlementInfo);
     }

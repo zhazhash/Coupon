@@ -60,7 +60,7 @@ public class HealthCheck {
      */
     @GetMapping("/info")
     public List<Map<String,Object>> info(){
-       List<ServiceInstance> instances =  client.getInstances(registration.getInstanceId());
+       List<ServiceInstance> instances =  client.getInstances(registration.getServiceId());
        List<Map<String,Object>> result = Lists.newArrayList();
         instances.forEach(t -> {
             Map<String,Object> map = Maps.newHashMap();

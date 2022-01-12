@@ -109,9 +109,9 @@ public class ManJianZheKouExecutor extends AbstractExecutor implements RuleExecu
         allSharedKeysForManJian.add(manJianKey);
         List<String> allSharedKeysForZheKou = new ArrayList<>();
         allSharedKeysForZheKou.add(zheKouKey);
-        allSharedKeysForManJian.addAll(JSON.parseObject(zheKou.getCouponTemplate().getRule().getWeight(),List.class));
+        allSharedKeysForZheKou.addAll(JSON.parseObject(zheKou.getCouponTemplate().getRule().getWeight(),List.class));
         return CollectionUtils.isSubCollection(Arrays.asList(manJianKey,zheKouKey),allSharedKeysForManJian) ||
-                CollectionUtils.isSubCollection(Arrays.asList(manJian,zheKouKey),allSharedKeysForZheKou);
+                CollectionUtils.isSubCollection(Arrays.asList(manJianKey,zheKouKey),allSharedKeysForZheKou);
     }
 
 
