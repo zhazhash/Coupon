@@ -95,7 +95,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<CouponTemplateSDK> findAvailableTemplate(Long userId) throws CouponException {
 
-        long curTime = new Date().getTime();
+        long curTime = System.currentTimeMillis();
         List<CouponTemplateSDK> templateSDKS = templateClient.findAllUsableTemplate().getData();
         log.debug("Find All Template (From templateclient) Count:{}",templateSDKS);
         templateSDKS = templateSDKS.stream().filter( t ->
@@ -130,9 +130,9 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Coupon acquireTemplate(AcquireTemplateRequest request) throws CouponException {
         Map<Integer, CouponTemplateSDK> id2Template = templateClient.findIds2TemplateSDK(
-                Collections.singletonList(request.getCouponTemplateSDK().getId())).getData();
+                Collections.singletonList(request.getTemplateSDK().getId())).getData();
         if (id2Template.size() <= 0 ) {
-            log.error("Can Not Acquire Template From TemplateClient :{}",request.getCouponTemplateSDK().getId());
+            log.error("Can Not Acquire Template From TemplateClient :{}",request.getTemplateSDK().getId());
             throw new CouponException("Can Not Acquire Template From TemplateClient");
         }
         CouponTemplateSDK idTemplate = id2Template.get(0);//将获取到的优惠卷模板取出

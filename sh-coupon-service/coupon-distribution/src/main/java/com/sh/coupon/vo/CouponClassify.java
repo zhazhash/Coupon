@@ -33,7 +33,7 @@ public class CouponClassify {
 
         coupons.forEach(c -> {
             boolean isTimeExpired;
-            long curTime = new Date().getTime();
+            long curTime = System.currentTimeMillis();
             if(c.getCouponTemplateSDK().getRule().getExpiration().getDeadline().equals(
                     PeriodType.REGULR.getCode()
             )){

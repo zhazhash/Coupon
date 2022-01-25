@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 
 /**
  * 获取优惠卷请求对象
+ * @author admin
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AcquireTemplateRequest {
-    /*用户id*/
+    /**用户id*/
     private Long userId;
-    /*优惠卷模板信息*/
-    private CouponTemplateSDK couponTemplateSDK;
+    /**优惠卷模板信息*/
+    private CouponTemplateSDK templateSDK;
 }

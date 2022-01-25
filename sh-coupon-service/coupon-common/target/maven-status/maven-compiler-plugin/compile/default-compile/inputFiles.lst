@@ -9,6 +9,9 @@
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/annotation/IgnoreResposeAdvice.java
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/conf/JackConfig.java
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/TemplateRule.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/SettlementInfo.java
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/advice/CommonResponseDataAdvice.java
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/advice/GloblalExceptionAdvice.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/GoodsType.java
+/Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/vo/GoodsInfo.java
 /Users/admin/IdeaProjects/coupon/sh-coupon-service/coupon-common/src/main/java/com/sh/coupon/constant/ProductLine.java
