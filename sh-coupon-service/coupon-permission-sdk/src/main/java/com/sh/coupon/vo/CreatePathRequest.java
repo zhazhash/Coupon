@@ -9,13 +9,14 @@ import java.util.List;
 
 /**
  * 路径创建请求对象定义
+ * @author admin
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreatePathRequest {
 
-    private List<PathInfo> patinfos;
+    private List<PathInfo> pathInfos;
 
     @Data
     @Builder
@@ -26,7 +27,7 @@ public class CreatePathRequest {
         private String pathPattern;
         /*http 方法类型*/
         private String httpMethod;
-        /*lying名称*/
+        /*路径名称*/
         private String pathName;
         /*服务名称*/
         private String serviceName;

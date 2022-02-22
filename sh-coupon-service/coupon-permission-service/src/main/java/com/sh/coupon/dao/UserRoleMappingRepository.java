@@ -8,4 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author admin
  */
 public interface UserRoleMappingRepository extends JpaRepository<UserRoleMapping,Integer> {
+    /**
+     * 通过userId 寻找数据记录
+     * @param userId
+     * @return
+     */
+    UserRoleMapping findByUserId(Integer userId);
 }
