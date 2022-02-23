@@ -13,5 +13,5 @@ public interface UserRoleMappingRepository extends JpaRepository<UserRoleMapping
      * @param userId
      * @return
      */
-    UserRoleMapping findByUserId(Integer userId);
+    UserRoleMapping findByUserId(Long userId);
 }

@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreatePathRequest {
-
     private List<PathInfo> pathInfos;
 
     @Data

@@ -27,7 +27,7 @@ public class PathService {
 
     /**
      * 添加新的path到数据表中
-     * @Parms request {@link CreatePathRequest} 参数必传，方法中不校验是否存在，为默认存在项。
+     * @Parms request {@link CreatePathRequest}
      * @return 数据表的主键
      */
     public List<Integer> createPath(CreatePathRequest request){
