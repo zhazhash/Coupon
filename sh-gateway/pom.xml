@@ -38,6 +38,12 @@
             <artifactId>guava</artifactId>
             <version>16.0</version>
         </dependency>
+        <!--权限sdk-->
+        <dependency>
+            <groupId>com.sh.coupon</groupId>
+            <artifactId>coupon-permission-sdk</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <!--
