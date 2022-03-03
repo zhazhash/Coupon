@@ -18,7 +18,7 @@ public @interface ShCouponPermission {
     String description() default "";
 
     /**
-     * 此接口是否为制度，默认是true
+     * 此接口是否为只读，默认是true
      */
     boolean readOnly() default true;
 

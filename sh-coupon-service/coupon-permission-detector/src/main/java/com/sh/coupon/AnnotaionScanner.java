@@ -1,7 +1,7 @@
 package com.sh.coupon;
 
 import com.google.common.collect.Lists;
-import com.sh.coupon.annotaion.IgnorePerrmission;
+import com.sh.coupon.annotaion.IgnorePermission;
 import com.sh.coupon.annotaion.ShCouponPermission;
 import com.sh.coupon.vo.PermissionInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -55,17 +55,17 @@ public class AnnotaionScanner {
         // 方法属于哪个类
         Class baseClass = javaMethod.getDeclaringClass();
         if(!isCouponPackage(baseClass.getName())){
-            log.info("方法不存在于需要扫描的包中" + javaMethod.getName());
+            log.info("方法不存在于需要扫描的包中 :{}" , javaMethod.getName());
             return Collections.emptyList();
         }
-        IgnorePerrmission ignorePerrmission = javaMethod.getAnnotation(IgnorePerrmission.class);
+        IgnorePermission ignorePerrmission = javaMethod.getAnnotation(IgnorePermission.class);
         if (null != ignorePerrmission){
-            log.info("该方法不需要权限" + javaMethod.getName());
+            log.info("该方法不需要权限:{}" , javaMethod.getName());
             return Collections.emptyList();
         }
         ShCouponPermission couponPermission = javaMethod.getAnnotation(ShCouponPermission.class);
         if(null == couponPermission){
-            log.error("请确认该方法是否需要扫描，如需扫描请配置ShCouponPermission注解，如不需要则配置IgnorePerrmission注解。");
+            log.error("请确认该方法是否需要扫描，如需扫描请配置ShCouponPermission注解，如不需要则配置IgnorePerrmission注解。{},{}",javaMethod.getDeclaringClass().getName(),javaMethod.getName());
             return Collections.emptyList();
         }
         //取出 RequestMapping配置的url

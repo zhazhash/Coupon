@@ -1,6 +1,8 @@
 package com.sh.coupon.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.sh.coupon.annotaion.IgnorePermission;
+import com.sh.coupon.annotaion.ShCouponPermission;
 import com.sh.coupon.ecxeption.CouponException;
 import com.sh.coupon.entity.CouponTemplate;
 import com.sh.coupon.service.IBuildTemplateService;
@@ -34,6 +36,7 @@ public class CouponTemplateController {
      * @return
      */
     @PostMapping("/build")
+    @ShCouponPermission(description = "buildTemplate",readOnly = false)
     public CouponTemplate buildTemplate(@RequestBody TemplateRequest request) throws CouponException {
         log.info("Build Template : {}", JSON.toJSONString(request));
         return buildTemplateService.buildTemplate(request);
@@ -45,6 +48,7 @@ public class CouponTemplateController {
      * @return
      */
     @GetMapping("/info")
+    @ShCouponPermission(description = "buildTemplateInfo",readOnly = true)
     public CouponTemplate buildTemplateInfo(Integer id) throws CouponException{
         log.info("build Template Info For :{}", id);
         return templateBaseService.buildTemplateInfo(id);
@@ -57,6 +61,7 @@ public class CouponTemplateController {
      * @throws CouponException
      */
     @GetMapping("/sdk/all")
+    @IgnorePermission
     public List<CouponTemplateSDK> findAllUsableTemplate() throws  CouponException{
         log.info("Find All Usable Template");
         return templateBaseService.findAllUsableTemplate();
@@ -70,6 +75,7 @@ public class CouponTemplateController {
      * @throws CouponException
      */
     @GetMapping("/sdk/infos")
+    @IgnorePermission
     public Map<Integer,CouponTemplateSDK> findIds2TemplateSDK(@RequestParam("ids") Collection<Integer> ids) throws CouponException{
         log.info("findIds2TemplateSDK : {}",JSON.toJSONString(ids));
         return templateBaseService.findIds2TemplateSDK(ids);

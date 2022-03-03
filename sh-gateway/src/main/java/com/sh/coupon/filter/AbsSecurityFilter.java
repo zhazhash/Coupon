@@ -1,10 +1,9 @@
-package com.sh.gateway.filter;
+package com.sh.coupon.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 

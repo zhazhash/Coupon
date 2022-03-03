@@ -1,4 +1,4 @@
-package com.sh.gateway.filter;
+package com.sh.coupon.filter;
 
 
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;

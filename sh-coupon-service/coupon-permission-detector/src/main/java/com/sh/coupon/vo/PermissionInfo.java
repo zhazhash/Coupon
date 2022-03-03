@@ -22,8 +22,8 @@ public class PermissionInfo {
 
     @Override
     public String toString() {
-        return "url = " + url +"method = " + method
-                + "isRead = " + isRead + "description = " + description
-                +"extra = " + extra;
+        return "url = " + url +",method = " + method
+                + ",isRead = " + isRead + ",description = " + description
+                +",extra = " + extra;
     }
 }

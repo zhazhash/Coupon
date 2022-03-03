@@ -1,4 +1,4 @@
-package com.sh.gateway.filter;
+package com.sh.coupon.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;

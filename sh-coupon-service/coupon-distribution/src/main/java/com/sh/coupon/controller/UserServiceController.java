@@ -1,5 +1,6 @@
 package com.sh.coupon.controller;
 
+import com.sh.coupon.annotaion.ShCouponPermission;
 import com.sh.coupon.ecxeption.CouponException;
 import com.sh.coupon.entity.Coupon;
 import com.sh.coupon.service.IUserService;
@@ -33,6 +34,7 @@ public class UserServiceController {
      * @throws CouponException
      */
     @GetMapping("/coupons")
+    @ShCouponPermission(description = "findCouponsByStatus",readOnly = true)
     public List<Coupon> findCouponsByStatus(@RequestParam("userId") Long userId, @RequestParam("status") Integer status) throws CouponException {
         log.info("Find Coupons By Status :{},{}",userId,status);
        return userService.findCouponByStatus(userId,status);
@@ -49,10 +51,12 @@ public class UserServiceController {
      * @throws CouponException
      */
     @PostMapping("/acquire/template")
+    @ShCouponPermission(description = "acquireTemplate",readOnly = false)
     public Coupon acquireTemplate(@RequestBody AcquireTemplateRequest request) throws CouponException{
         return userService.acquireTemplate(request);
     }
     @PostMapping("/sellement")
+    @ShCouponPermission(description = "settlement",readOnly = false)
     public SettlementInfo settlement(@RequestBody SettlementInfo settlementInfo) throws CouponException{
         return userService.settlenment(settlementInfo);
     }

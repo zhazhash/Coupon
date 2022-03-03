@@ -1,6 +1,7 @@
 package com.sh.coupon.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.sh.coupon.annotaion.ShCouponPermission;
 import com.sh.coupon.ecxeption.CouponException;
 import com.sh.coupon.executor.ExecutorManger;
 import com.sh.coupon.vo.SettlementInfo;
@@ -27,6 +28,7 @@ public class SettlementController {
      * @throws CodecException
      */
     @PostMapping("/settlement/computerule")
+    @ShCouponPermission(description = "computeRule",readOnly = false)
     public SettlementInfo computeRule(@RequestBody SettlementInfo settlementInfo) throws CouponException {
         log.info("settlement:{}", JSON.toJSONString(settlementInfo));
         return executorManger.couputeRule(settlementInfo);

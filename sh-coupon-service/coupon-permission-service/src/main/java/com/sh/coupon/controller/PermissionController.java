@@ -30,7 +30,7 @@ public class PermissionController {
 
 
     @PostMapping("/create/path")
-    public List<Integer> createPath(@Valid @RequestBody CreatePathRequest request){
+    public List<Integer> createPath(@RequestBody CreatePathRequest request){
         log.info("createPath:{}",request.getPathInfos().size());
         return pathService.createPath(request);
     }
